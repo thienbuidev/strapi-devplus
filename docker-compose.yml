@@ -1,9 +1,9 @@
 version: "3"
 services:
   strapi:
-    container_name: strapi
+    container_name: strapi-app
     build:
-      dockerfile: dockerfile
+      dockerfile: Dockerfile.prod
       context: .
     restart: unless-stopped
     env_file: .env
@@ -34,7 +34,6 @@ services:
 
   strapiDB:
     container_name: strapiDB
-    platform: linux/amd64
     restart: unless-stopped
     env_file: .env
     image: postgres:16.0-alpine
